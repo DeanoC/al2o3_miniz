@@ -10,8 +10,6 @@ if(NOT al2o3_POPULATED)
 	add_subdirectory(${al2o3_SOURCE_DIR} ${al2o3_BINARY_DIR})
 endif()
 
-option( AL2O3_ORIGINAL_MINIZ_API "provide original miniz/libz api" OFF)
-
 set(Interface
 		miniz.h
 		)
@@ -25,7 +23,5 @@ set(Deps
 		)
 
 ADD_LIB(${LibName} "${Interface}" "${Src}" "${Deps}")
-if(AL2O3_ORIGINAL_MINIZ_API)
-	target_include_directories(${LibName} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
-endif()
+target_include_directories(${LibName} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
